@@ -1,0 +1,15 @@
+
+# Войти в контейнер
+docker exec -it kafka-1 bash
+
+# Создать топик с 3 партициями и 2 репликами через консоль
+kafka-topics.sh --create --topic my-topic --bootstrap-server localhost:9092 --partitions 3 --replication-factor 2
+
+# Подробная информация о созданном топике
+kafka-topics.sh --describe --topic my-topic --bootstrap-server localhost:9092
+
+# Вывод в консоли:
+Topic: my-topic TopicId: g60khqmqQUe_ZHnA3HV0sA PartitionCount: 3       ReplicationFactor: 2    Configs:
+        Topic: my-topic Partition: 0    Leader: 2       Replicas: 2,3   Isr: 2,3        Elr:    LastKnownElr:
+        Topic: my-topic Partition: 1    Leader: 3       Replicas: 3,1   Isr: 3,1        Elr:    LastKnownElr:
+        Topic: my-topic Partition: 2    Leader: 1       Replicas: 1,2   Isr: 1,2        Elr:    LastKnownElr:
